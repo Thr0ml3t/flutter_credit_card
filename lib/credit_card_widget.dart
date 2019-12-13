@@ -10,6 +10,9 @@ class CreditCardWidget extends StatefulWidget {
     @required this.cardHolderName,
     @required this.cvvCode,
     @required this.showBackView,
+    this.cardNumberLabel = 'Card Number',
+    this.cardHolderNameLabel = 'Card Holder',
+    this.expiryDateLabel = 'Expiry Date',
     this.animationDuration = const Duration(milliseconds: 500),
     this.height,
     this.width,
@@ -23,6 +26,9 @@ class CreditCardWidget extends StatefulWidget {
   final String expiryDate;
   final String cardHolderName;
   final String cvvCode;
+  final String cardNumberLabel;
+  final String cardHolderNameLabel;
+  final String expiryDateLabel;
   final TextStyle textStyle;
   final Color cardBgColor;
   final bool showBackView;
@@ -146,7 +152,7 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
     final TextStyle defaultTextStyle = Theme.of(context).textTheme.title.merge(
           TextStyle(
             color: Colors.black,
-            fontFamily: 'halter',
+            fontFamily: 'montserrat',
             fontSize: 16,
             package: 'flutter_credit_card',
           ),
@@ -302,7 +308,7 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
               padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
               child: Text(
                 widget.cardHolderName.isEmpty || widget.cardHolderName == null
-                    ? 'CARD HOLDER'
+                    ? widget.cardHolderNameLabel
                     : widget.cardHolderName,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
