@@ -445,9 +445,11 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
         break;
 
       default:
-        icon = Container(
+        icon = Image.asset(
+          'icons/blankcard.png',
           height: 48,
           width: 48,
+          package: 'flutter_credit_card',
         );
         isAmex = false;
         break;
